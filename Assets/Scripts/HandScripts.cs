@@ -1,21 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 
-public class HandScripts : MonoBehaviour {
+public class HandScripts : MonoBehaviour
+{
+	public enum Chirality { Left, Right };
 
+	[SerializeField]
+	private readonly Chirality hand;
 
+	private XRNode _hand;
 
-	// Use this for initialization
 	void Start ()
     {
-		
+		_hand = hand == Chirality.Left ? XRNode.LeftHand : XRNode.RightHand;
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
-        transform.position = Vector3.zero;
+        transform.position = InputTracking.GetLocalPosition(_hand);
+		transform.rotation = InputTracking.GetLocalRotation(_hand);
 	}
 }
