@@ -45,13 +45,13 @@ public class Hands : MonoBehaviour
 
 		if (Input.GetButton(trigger))
 		{
-			fingers.rotation = Quaternion.Euler(0, -145f, 0);
-			thumb.rotation = Quaternion.Euler(85f, -30f, 0);
+			fingers.localRotation = Quaternion.Euler(0, -145f, 0);
+			thumb.localRotation = Quaternion.Euler(85f, -30f, 0);
 		}
 		else
 		{
-			fingers.rotation = Quaternion.Euler(0, 0, 0);
-			thumb.rotation = Quaternion.Euler(90f, 0, 0);
+			fingers.localRotation = Quaternion.Euler(0, 0, 0);
+			thumb.localRotation = Quaternion.Euler(90f, 0, 0);
 		}
 	}
 }
