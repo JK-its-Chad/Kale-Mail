@@ -64,7 +64,9 @@ public class Hands : MonoBehaviour
 
 		if (grabbed)
 		{
-			grabbed.transform.position = transform.position;
+			grabbed.transform.position = transform.position + offset;
+			//grabbed.transform.rotation = transform.rotation;
+
 			lastPos = transform.position;
 			lastRot = transform.rotation;
 		}
@@ -75,6 +77,8 @@ public class Hands : MonoBehaviour
 		if (Input.GetButtonDown(trigger))
 		{
 			grabbed = other.gameObject;
+
+			offset = grabbed.transform.position - transform.position;
 
 			Rigidbody rb = grabbed.GetComponent<Rigidbody>();
 			rb.useGravity = false;
@@ -90,7 +94,7 @@ public class Hands : MonoBehaviour
 		rb.useGravity = true;
 		rb.isKinematic = false;
 		rb.velocity = (transform.position - lastPos) / Time.deltaTime;
-		rb.angularVelocity = (transform.rotation.eulerAngles - lastRot.eulerAngles);// / Time.deltaTime;
+		rb.angularVelocity = (transform.rotation.eulerAngles - lastRot.eulerAngles); // Time.deltaTime;
 
 		grabbed = null;
 	}
