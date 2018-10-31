@@ -11,16 +11,47 @@ public class Hands : MonoBehaviour
 	[SerializeField]
 	private Chirality hand;
 
-	private XRNode _hand;
+	[Header("Pivots")]
+	[SerializeField]
+	private Transform fingers;
+	[SerializeField]
+	private Transform thumb;
+
+	private XRNode handNode;
+	private string trigger;
+	private string grip;
 
 	void Start ()
     {
-		_hand = hand == Chirality.Left ? XRNode.LeftHand : XRNode.RightHand;
+		//_hand = hand == Chirality.Left ? XRNode.LeftHand : XRNode.RightHand;
+		if (hand == Chirality.Right)
+		{
+			handNode = XRNode.RightHand;
+			trigger = "RightTrigger";
+			grip = "RightGrip";
+		}
+		else
+		{
+			handNode = XRNode.LeftHand;
+			trigger = "LeftTrigger";
+			grip = "LeftGrip";
+		}
 	}
 	
 	void Update ()
     {
-        transform.position = InputTracking.GetLocalPosition(_hand);
-		transform.rotation = InputTracking.GetLocalRotation(_hand);
+        transform.position = InputTracking.GetLocalPosition(handNode);
+		transform.rotation = InputTracking.GetLocalRotation(handNode);
+
+		if (Input.GetButton(trigger))
+		{
+			fingers.rotation = Quaternion.Euler(0, -145f, 0);
+			thumb.rotation = Quaternion.Euler(85f, -30f, 0);
+		}
+		else
+		{
+			fingers.rotation = Quaternion.Euler(0, 0, 0);
+			thumb.rotation = Quaternion.Euler(90f, 0, 0);
+		}
 	}
 }
