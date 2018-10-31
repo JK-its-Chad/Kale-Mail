@@ -5,10 +5,14 @@ using UnityEngine;
 public class AllKale : MonoBehaviour {
 
     bool isPlanted = false;
-    public int stage = 0; //0=seed, 1=babby, 2=meh, 3=decent, 4=BESTGRAB, 5=old, 6=dead
-    public float lifeTime = 0;
-    public LayerMask soil;
     bool inDirt = false;
+    public int stage = 0; //0=seed, 1=babby, 2=meh, 3=decent, 4=BESTGRAB, 5=old, 6=dead
+    float lifeTime = 0;
+    public LayerMask soil;
+
+    public int fertilizer = 1;
+
+
 
 
 	void Start ()
@@ -20,20 +24,21 @@ public class AllKale : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        RaycastHit hit;
-        //inDirt = Physics.SphereCast(transform.position, 1f, Vector3.zero, out hit, 1, soil);
-        inDirt = true;
+        inDirt = Physics.CheckSphere(transform.position, .125f, soil);
+        Debug.Log(inDirt);
+
         if (lifeTime == 0 && inDirt)
         {
             isPlanted = true;
         }
+        else if(!inDirt)
+        {
+            isPlanted =false;
+        }
 		if(isPlanted && stage < 5)
         {
-            lifeTime += Time.deltaTime;
-            lifeTime += Time.deltaTime;
-            lifeTime += Time.deltaTime;
-            lifeTime += Time.deltaTime;
-            lifeTime += Time.deltaTime;
+            lifeTime += Time.deltaTime * fertilizer;
+
             transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
         }
         if(stage == 6)

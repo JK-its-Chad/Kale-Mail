@@ -190,6 +190,16 @@ Prefab:
       propertyPath: m_Name
       value: Cluster (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
   m_IsPrefabAsset: 0
@@ -235,6 +245,16 @@ Prefab:
     - target: {fileID: 1176185328825110, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
       propertyPath: m_Name
       value: Cluster (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
@@ -348,6 +368,16 @@ Prefab:
       propertyPath: m_Name
       value: Cluster (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
   m_IsPrefabAsset: 0
@@ -393,6 +423,16 @@ Prefab:
     - target: {fileID: 1176185328825110, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
       propertyPath: m_Name
       value: Cluster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
@@ -524,6 +564,16 @@ Prefab:
     - target: {fileID: 1176185328825110, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
       propertyPath: m_Name
       value: Cluster (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
@@ -699,6 +749,54 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1171612074580240, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821559296417148, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905523854540724, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621311141205854, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511395871549610, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891622734652630, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083767169538002, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002079799875706, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1007082952520980, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988041105936570, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391323779756078, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020476308550784, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de930a732dcaf5a4080232b93acd7206, type: 2}
   m_IsPrefabAsset: 0
@@ -826,6 +924,16 @@ Prefab:
       propertyPath: m_Name
       value: Cluster (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
   m_IsPrefabAsset: 0
@@ -872,6 +980,16 @@ Prefab:
       propertyPath: m_Name
       value: Cluster (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
   m_IsPrefabAsset: 0
@@ -917,6 +1035,16 @@ Prefab:
     - target: {fileID: 1176185328825110, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
       propertyPath: m_Name
       value: Cluster (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
@@ -1129,7 +1257,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4839716124413254, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.65176713
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4839716124413254, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1154,6 +1282,16 @@ Prefab:
     - target: {fileID: 4839716124413254, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: soil.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 114375949299879864, guid: 65e6bf9847d670148bd258f20028e5d7,
+        type: 2}
+      propertyPath: fertilizer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e6bf9847d670148bd258f20028e5d7, type: 2}
