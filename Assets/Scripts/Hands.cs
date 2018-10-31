@@ -66,6 +66,7 @@ public class Hands : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
+        Debug.Log("HEY");
 		if (Input.GetButtonDown(trigger))
 		{
 			grabbed = other.gameObject;

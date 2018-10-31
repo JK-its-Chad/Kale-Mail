@@ -21,7 +21,7 @@ public class AllKale : MonoBehaviour {
 	void Update ()
     {
         RaycastHit hit;
-        inDirt = Physics.SphereCast(transform.position, 1f, Vector3.zero, out hit, 1, soil);
+        //inDirt = Physics.SphereCast(transform.position, 1f, Vector3.zero, out hit, 1, soil);
         inDirt = true;
         if (lifeTime == 0 && inDirt)
         {
@@ -32,10 +32,16 @@ public class AllKale : MonoBehaviour {
             lifeTime += Time.deltaTime;
             transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
         }
-        //if(stage )
+        if(stage == 5)
         {
             lifeTime -= Time.deltaTime;
+            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
         }
+        if(stage == 6)
+        {
+            //wither
+        }
+
         if (stage == 0 && lifeTime >= 20)
         {
 
