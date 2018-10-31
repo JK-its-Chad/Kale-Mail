@@ -22,49 +22,55 @@ public class AllKale : MonoBehaviour {
     {
         RaycastHit hit;
         inDirt = Physics.SphereCast(transform.position, 1f, Vector3.zero, out hit, 1, soil);
+        inDirt = true;
         if (lifeTime == 0 && inDirt)
         {
             isPlanted = true;
         }
-		if(isPlanted)
+		if(isPlanted && stage >= 5)
         {
             lifeTime += Time.deltaTime;
+            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
         }
-        if(stage == 0 && lifeTime >= 100)
+        //if(stage )
         {
-            transform.localScale = new Vector3(lifeTime/100, lifeTime / 100, lifeTime / 100);
+            lifeTime -= Time.deltaTime;
+        }
+        if (stage == 0 && lifeTime >= 20)
+        {
+
             stage++;
         }
-        if (stage == 1 && lifeTime >= 200)
+        if (stage == 1 && lifeTime >= 40)
         {
-            transform.localScale = new Vector3(lifeTime / 100, lifeTime / 100, lifeTime / 100);
+            
             stage++;
         }
-        if (stage == 2 && lifeTime >= 300)
+        if (stage == 2 && lifeTime >= 60)
         {
-            transform.localScale = new Vector3(lifeTime / 100, lifeTime / 100, lifeTime / 100);
+
             stage++;
         }
-        if (stage == 3 && lifeTime >= 500)
+        if (stage == 3 && lifeTime >= 80)
         {
-            transform.localScale = new Vector3(lifeTime / 100, lifeTime / 100, lifeTime / 100);
+
             stage++;
         }
-        if (stage == 4 && lifeTime >= 700)
+        if (stage == 4 && lifeTime >= 100)
         {
-            transform.localScale = new Vector3(lifeTime / 100, lifeTime / 100, lifeTime / 100);
+
             stage++;
         }
-        if (stage == 5 && lifeTime >= 900)
+        if (stage == 5 && lifeTime >= 120)
         {
-            transform.localScale = new Vector3(lifeTime / 100, lifeTime / 100, lifeTime / 100);
+
             stage++;
         }
-        if (stage == 6 && lifeTime >= 1000)
+        if (stage == 6 && lifeTime >= 140)
         {
             transform.localScale = new Vector3(.5f, .5f, .5f);
-            stage = 0;
-            lifeTime = 0;
+            stage = -1;
         }
+        
     }
 }
