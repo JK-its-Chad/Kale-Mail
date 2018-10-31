@@ -65,7 +65,7 @@ public class Hands : MonoBehaviour
 		if (grabbed)
 		{
 			grabbed.transform.position = transform.position + offset;
-			//grabbed.transform.rotation = transform.rotation;
+			grabbed.transform.rotation = transform.rotation;
 
 			lastPos = transform.position;
 			lastRot = transform.rotation;
