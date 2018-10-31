@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 
 
-public class HandScripts : MonoBehaviour
+public class Hands : MonoBehaviour
 {
 	public enum Chirality { Left, Right };
 
