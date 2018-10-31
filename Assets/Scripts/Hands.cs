@@ -21,6 +21,8 @@ public class Hands : MonoBehaviour
 	private string trigger;
 	private string grip;
 
+	private GameObject grabbed;
+
 	void Start ()
     {
 		//_hand = hand == Chirality.Left ? XRNode.LeftHand : XRNode.RightHand;
@@ -52,6 +54,21 @@ public class Hands : MonoBehaviour
 		{
 			fingers.localRotation = Quaternion.Euler(0, 0, 0);
 			thumb.localRotation = Quaternion.Euler(90f, 0, 0);
+
+			grabbed = null;
+		}
+
+		if (grabbed)
+		{
+			grabbed.transform.position = transform.position;
+		}
+	}
+
+	private void OnTriggerStay(Collider other)
+	{
+		if (Input.GetButtonDown(trigger))
+		{
+			grabbed = other.gameObject;
 		}
 	}
 }
