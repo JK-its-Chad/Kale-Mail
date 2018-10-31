@@ -9,7 +9,7 @@ public class HandScripts : MonoBehaviour
 	public enum Chirality { Left, Right };
 
 	[SerializeField]
-	private readonly Chirality hand;
+	private Chirality hand;
 
 	private XRNode _hand;
 
