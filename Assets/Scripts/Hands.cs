@@ -76,7 +76,7 @@ public class Hands : MonoBehaviour
 	{
 		if (Input.GetButtonDown(trigger))
 		{
-			grabbed = other.gameObject;
+			grabbed = other.transform.root.gameObject;
 
 			offset = grabbed.transform.position - transform.position;
 
