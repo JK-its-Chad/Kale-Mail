@@ -27,14 +27,13 @@ public class AllKale : MonoBehaviour {
         {
             isPlanted = true;
         }
-		if(isPlanted && stage >= 5)
+		if(isPlanted && stage < 5)
         {
             lifeTime += Time.deltaTime;
-            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
-        }
-        if(stage == 5)
-        {
-            lifeTime -= Time.deltaTime;
+            lifeTime += Time.deltaTime;
+            lifeTime += Time.deltaTime;
+            lifeTime += Time.deltaTime;
+            lifeTime += Time.deltaTime;
             transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
         }
         if(stage == 6)
@@ -67,16 +66,20 @@ public class AllKale : MonoBehaviour {
 
             stage++;
         }
-        if (stage == 5 && lifeTime >= 120)
+        if (stage == 5 && lifeTime < 120)
         {
-
+            lifeTime -= Time.deltaTime;
+            lifeTime -= Time.deltaTime;
+            lifeTime -= Time.deltaTime;
+            lifeTime -= Time.deltaTime;
+            lifeTime -= Time.deltaTime;
+            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
+        }
+        if (stage == 5 && lifeTime <= 60)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
             stage++;
         }
-        if (stage == 6 && lifeTime >= 140)
-        {
-            transform.localScale = new Vector3(.5f, .5f, .5f);
-            stage = -1;
-        }
-        
+   
     }
 }
