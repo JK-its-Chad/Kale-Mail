@@ -21,7 +21,11 @@ public class Hands : MonoBehaviour
 	private string trigger;
 	private string grip;
 
+	private Vector3 lastPos;
+	private Quaternion lastRot;
+
 	private GameObject grabbed;
+	private Vector3 offset;
 
 	void Start ()
     {
@@ -55,21 +59,39 @@ public class Hands : MonoBehaviour
 			fingers.localRotation = Quaternion.Euler(0, 0, 0);
 			thumb.localRotation = Quaternion.Euler(90f, 0, 0);
 
-			grabbed = null;
+			Drop();
 		}
 
 		if (grabbed)
 		{
 			grabbed.transform.position = transform.position;
+			lastPos = transform.position;
+			lastRot = transform.rotation;
 		}
 	}
 
 	private void OnTriggerStay(Collider other)
 	{
-        Debug.Log("HEY");
 		if (Input.GetButtonDown(trigger))
 		{
 			grabbed = other.gameObject;
+
+			Rigidbody rb = grabbed.GetComponent<Rigidbody>();
+			rb.useGravity = false;
+			rb.isKinematic = true;
+			rb.velocity = Vector3.zero;
+			rb.angularVelocity = Vector3.zero;
 		}
+	}
+
+	private void Drop()
+	{
+		Rigidbody rb = grabbed.GetComponent<Rigidbody>();
+		rb.useGravity = true;
+		rb.isKinematic = false;
+		rb.velocity = (transform.position - lastPos) / Time.deltaTime;
+		rb.angularVelocity = (transform.rotation.eulerAngles - lastRot.eulerAngles);// / Time.deltaTime;
+
+		grabbed = null;
 	}
 }
