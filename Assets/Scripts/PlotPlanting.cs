@@ -10,6 +10,8 @@ public class PlotPlanting : MonoBehaviour {
 
     private void Update()
     {
+        if (plant == null) { return; }
+        
         if(plant.transform.position != transform.position && plotTaken == true)
         {
             plotTaken = false;
