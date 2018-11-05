@@ -28,7 +28,8 @@ public class Hands : MonoBehaviour
 
 	private GameObject grabbed;
 	private Tool tool;
-	private Vector3 offset;
+	private Vector3 offsetPos;
+	private Quaternion offsetRot;
 
 	void Start ()
     {
@@ -53,7 +54,7 @@ public class Hands : MonoBehaviour
     {
 		// Move hand positions
         transform.position = InputTracking.GetLocalPosition(handNode);
-		transform.rotation = InputTracking.GetLocalRotation(handNode);
+		transform.rotation = InputTracking.GetLocalRotation(handNode); // + Quaternion.Euler(10f, 0, 0);
 
 		// Triger interacts or drops item
 		if (Input.GetButton(trigger))
@@ -119,8 +120,8 @@ public class Hands : MonoBehaviour
 		// Move item positions
 		if (grabbed)
 		{
-			grabbed.transform.position = transform.position + transform.rotation * offset;
-			grabbed.transform.rotation = transform.rotation;
+			grabbed.transform.position = transform.position + transform.rotation * offsetPos;
+			grabbed.transform.rotation = transform.rotation * offsetRot;
 
 			lastPos = transform.position;
 			lastRot = transform.rotation;
@@ -142,7 +143,8 @@ public class Hands : MonoBehaviour
 		tool = grabbed.GetComponent<Tool>();
 
 		// Set offset
-		offset = tool != null ? tool.Offset : grabbed.transform.position - transform.position;
+		offsetPos = tool != null ? tool.Offset : grabbed.transform.position - transform.position;
+		offsetRot = grabbed.transform.rotation;
 
 		// Modify rigidbody
 		Rigidbody rb = grabbed.GetComponent<Rigidbody>();
