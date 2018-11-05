@@ -142,10 +142,18 @@ public class Hands : MonoBehaviour
 		grabbed = toGrab;
 		tool = grabbed.GetComponent<Tool>();
 
-		// Set offset
-		offsetPos = tool != null ? tool.Offset : grabbed.transform.position - transform.position;
-		offsetRot = grabbed.transform.rotation;
-
+		// Set offsets
+		if (tool != null)
+		{
+			offsetPos = tool.Offset;
+			offsetRot = Quaternion.identity;
+		}
+		else
+		{
+			offsetPos = grabbed.transform.position - transform.position;
+			offsetRot = grabbed.transform.rotation;
+		}
+		
 		// Modify rigidbody
 		Rigidbody rb = grabbed.GetComponent<Rigidbody>();
 		rb.useGravity = false;
