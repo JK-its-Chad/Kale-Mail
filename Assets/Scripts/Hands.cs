@@ -57,7 +57,7 @@ public class Hands : MonoBehaviour
 			fingers.localRotation = Quaternion.Euler(0, -145f, 0);
 			thumb.localRotation = Quaternion.Euler(85f, -30f, 0);
 
-			if (tool)
+			if (tool != null)
 			{
 				if (Input.GetButtonDown(trigger))
 				{
@@ -74,7 +74,7 @@ public class Hands : MonoBehaviour
 			fingers.localRotation = Quaternion.Euler(0, 0, 0);
 			thumb.localRotation = Quaternion.Euler(90f, 0, 0);
 
-			if (!tool)
+			if (tool == null)
 			{
 				Drop();
 			}
@@ -88,7 +88,7 @@ public class Hands : MonoBehaviour
 		}
 
 		// Grip button drops tools
-		if (Input.GetButtonDown(grip) && tool)
+		if (Input.GetButtonDown(grip) && tool != null)
 		{
 			Drop();
 		}
@@ -108,15 +108,12 @@ public class Hands : MonoBehaviour
 	{
 		if (Input.GetButtonDown(trigger))
 		{
-			// Get gameobject
+			// Get gameobject and tool script
 			grabbed = other.transform.root.gameObject;
-
-			// Get tool offset, else use default
-			Tool tool = grabbed.GetComponent<Tool>();
-			Vector3 _offset = tool != null ? tool.Offset : grabbed.transform.position;
+			tool = grabbed.GetComponent<Tool>();
 
 			// Set offset
-			offset = _offset - transform.position;
+			offset = tool != null ? tool.Offset : grabbed.transform.position - transform.position;
 
 			// Modify rigidbody
 			Rigidbody rb = grabbed.GetComponent<Rigidbody>();
