@@ -9,11 +9,6 @@ public class Scissors : Tool
 		transform.localScale = Vector3.one * 0.1f;
 	}
 
-	public override void Interact()
-	{
-		// Do nothing
-	}
-
 	public override void StopInteract()
 	{
 		transform.localScale = Vector3.one * 0.2f;

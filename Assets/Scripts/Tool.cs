@@ -12,9 +12,9 @@ public abstract class Tool : MonoBehaviour
 		get { return offset; }
 	}
 
-	public abstract void StartInteract();
+	public virtual void StartInteract() { }
 
-	public abstract void Interact();
+	public virtual void Interact() { }
 
-	public abstract void StopInteract();
+	public virtual void StopInteract() { }
 }
