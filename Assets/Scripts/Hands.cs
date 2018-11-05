@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-
+[RequireComponent(typeof(LineRenderer))]
 public class Hands : MonoBehaviour
 {
 	public enum Chirality { Left, Right };
@@ -16,6 +16,8 @@ public class Hands : MonoBehaviour
 	private Transform fingers;
 	[SerializeField]
 	private Transform thumb;
+
+	private LineRenderer laser;
 
 	private XRNode handNode;
 	private string trigger;
@@ -43,6 +45,8 @@ public class Hands : MonoBehaviour
 			trigger = "LeftTrigger";
 			grip = "LeftGrip";
 		}
+
+		laser = GetComponent<LineRenderer>();
 	}
 	
 	void Update ()
@@ -93,6 +97,25 @@ public class Hands : MonoBehaviour
 			Drop();
 		}
 
+		if (Input.GetButton(grip) && grabbed == null)
+		{
+			laser.enabled = true;
+
+			if (Input.GetButtonDown(trigger))
+			{
+				RaycastHit hit;
+
+				if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f, 1 << 9))
+				{
+					Grab(hit.transform.root.gameObject);
+				}
+			}
+		}
+		else
+		{
+			laser.enabled = false;
+		}
+
 		// Move item positions
 		if (grabbed)
 		{
@@ -108,24 +131,31 @@ public class Hands : MonoBehaviour
 	{
 		if (Input.GetButtonDown(trigger))
 		{
-			// Get gameobject and tool script
-			grabbed = other.transform.root.gameObject;
-			tool = grabbed.GetComponent<Tool>();
-
-			// Set offset
-			offset = tool != null ? tool.Offset : grabbed.transform.position - transform.position;
-
-			// Modify rigidbody
-			Rigidbody rb = grabbed.GetComponent<Rigidbody>();
-			rb.useGravity = false;
-			rb.isKinematic = true;
-			rb.velocity = Vector3.zero;
-			rb.angularVelocity = Vector3.zero;
+			Grab(other.transform.root.gameObject);
 		}
+	}
+
+	private void Grab(GameObject toGrab)
+	{
+		// Get gameobject and tool script
+		grabbed = toGrab;
+		tool = grabbed.GetComponent<Tool>();
+
+		// Set offset
+		offset = tool != null ? tool.Offset : grabbed.transform.position - transform.position;
+
+		// Modify rigidbody
+		Rigidbody rb = grabbed.GetComponent<Rigidbody>();
+		rb.useGravity = false;
+		rb.isKinematic = true;
+		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
 	}
 
 	private void Drop()
 	{
+		if (grabbed == null) { return; }
+
 		// Fix rigidbody
 		Rigidbody rb = grabbed.GetComponent<Rigidbody>();
 		rb.useGravity = true;
