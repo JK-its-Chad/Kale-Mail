@@ -53,7 +53,7 @@ public class Hands : MonoBehaviour
 	void Update ()
     {
 		// Move hand positions
-        transform.position = InputTracking.GetLocalPosition(handNode);
+        transform.localPosition = InputTracking.GetLocalPosition(handNode);
 		transform.rotation = InputTracking.GetLocalRotation(handNode); // + Quaternion.Euler(10f, 0, 0);
 
 		// Triger interacts or drops item
