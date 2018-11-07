@@ -17,7 +17,13 @@ public class Hands : MonoBehaviour
 	[SerializeField]
 	private Transform thumb;
 
-	private LineRenderer laser;
+    [Header("Debug")]
+    [SerializeField]
+    private bool manualControl = false;
+    [SerializeField]
+    private bool manualTrigger = false;
+
+    private LineRenderer laser;
 
 	private XRNode handNode;
 	private string trigger;
@@ -29,7 +35,6 @@ public class Hands : MonoBehaviour
 	private GameObject grabbed;
 	private Tool tool;
 	private Vector3 offsetPos;
-	private Quaternion offsetRot;
 
 	void Start ()
     {
@@ -52,12 +57,15 @@ public class Hands : MonoBehaviour
 	
 	void Update ()
     {
-		// Move hand positions
-        transform.localPosition = InputTracking.GetLocalPosition(handNode);
-		transform.rotation = InputTracking.GetLocalRotation(handNode); // + Quaternion.Euler(10f, 0, 0);
-
+        if (!manualControl)
+        {
+            // Move hand positions
+            transform.localPosition = InputTracking.GetLocalPosition(handNode);
+            transform.rotation = InputTracking.GetLocalRotation(handNode);// * Quaternion.Euler(10f, 0, 0);
+        }
+        
 		// Triger interacts or drops item
-		if (Input.GetButton(trigger))
+		if (Input.GetButton(trigger) || manualTrigger)
 		{
 			fingers.localRotation = Quaternion.Euler(0, -145f, 0);
 			thumb.localRotation = Quaternion.Euler(85f, -30f, 0);
@@ -121,7 +129,7 @@ public class Hands : MonoBehaviour
 		if (grabbed)
 		{
 			grabbed.transform.position = transform.position + transform.rotation * offsetPos;
-			grabbed.transform.rotation = transform.rotation * offsetRot;
+            grabbed.transform.rotation = transform.rotation;
 
 			lastPos = transform.position;
 			lastRot = transform.rotation;
@@ -146,12 +154,11 @@ public class Hands : MonoBehaviour
 		if (tool != null)
 		{
 			offsetPos = tool.Offset;
-			offsetRot = Quaternion.identity;
 		}
 		else
 		{
-			offsetPos = grabbed.transform.position - transform.position;
-			offsetRot = grabbed.transform.rotation;
+            offsetPos = grabbed.transform.position - transform.position;
+            offsetPos = Quaternion.Inverse(grabbed.transform.rotation) * offsetPos;
 		}
 		
 		// Modify rigidbody
