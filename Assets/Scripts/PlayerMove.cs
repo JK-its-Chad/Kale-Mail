@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour {
 
         Vector3 MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Time.deltaTime;
         Vector3 cameraRot = cam.transform.rotation.eulerAngles;
+
         if (Input.GetAxis("LeftJoyX") > .5 || Input.GetAxis("LeftJoyX") < -.5)
         {
             angle += Input.GetAxis("LeftJoyX") * .5f;
