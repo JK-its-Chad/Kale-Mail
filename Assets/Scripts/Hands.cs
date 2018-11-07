@@ -130,7 +130,7 @@ public class Hands : MonoBehaviour
 		if (grabbed)
 		{
 			grabbed.transform.position = transform.position + transform.rotation * offsetPos;
-            //grabbed.transform.rotation = transform.rotation * offsetRot;
+            grabbed.transform.rotation = transform.rotation * offsetRot;
 
 			lastPos = transform.position;
 			lastRot = transform.rotation;
@@ -159,7 +159,8 @@ public class Hands : MonoBehaviour
 		else
 		{
             offsetPos = grabbed.transform.position - transform.position;
-            offsetRot = grabbed.transform.rotation;
+            offsetRot = Quaternion.Inverse(grabbed.transform.rotation);
+            //offsetRot = grabbed.transform.rotation;
             offsetPos = Quaternion.Inverse(transform.rotation) * offsetPos;
 		}
 		
