@@ -6,6 +6,8 @@ public class PlayerMove : MonoBehaviour {
 
     Rigidbody rig;
     int speed = 10;
+    public float angle = 0;
+    public GameObject cam;
 
 	// Use this for initialization
 	void Start () {
@@ -13,16 +15,16 @@ public class PlayerMove : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void Update ()
     {
-        rig.velocity = Vector3.zero;
-        if (Input.GetAxis("Horizontal") > .05 || Input.GetAxis("Horizontal") < -.05)
+
+        Vector3 MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Time.deltaTime;
+        Vector3 cameraRot = cam.transform.rotation.eulerAngles;
+        if (Input.GetAxis("LeftJoyX") > .5 || Input.GetAxis("LeftJoyX") < -.5)
         {
-            rig.AddForce(transform.right * speed * Input.GetAxis("Horizontal"));
+            angle += Input.GetAxis("LeftJoyX") * .5f;
+            transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.y + angle, 0));
         }
-        if (Input.GetAxis("Vertical") > .05 || Input.GetAxis("Vertical") < -.05)
-        {
-            rig.AddForce(transform.forward * speed * Input.GetAxis("Vertical"));
-        }
+        transform.position += Quaternion.Euler(0, cameraRot.y, 0) * MoveDir;
     }
 }
