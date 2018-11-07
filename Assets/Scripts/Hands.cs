@@ -35,6 +35,7 @@ public class Hands : MonoBehaviour
 	private GameObject grabbed;
 	private Tool tool;
 	private Vector3 offsetPos;
+    private Quaternion offsetRot;
 
 	void Start ()
     {
@@ -129,7 +130,7 @@ public class Hands : MonoBehaviour
 		if (grabbed)
 		{
 			grabbed.transform.position = transform.position + transform.rotation * offsetPos;
-            grabbed.transform.rotation = transform.rotation;
+            //grabbed.transform.rotation = transform.rotation * offsetRot;
 
 			lastPos = transform.position;
 			lastRot = transform.rotation;
@@ -158,7 +159,8 @@ public class Hands : MonoBehaviour
 		else
 		{
             offsetPos = grabbed.transform.position - transform.position;
-            offsetPos = Quaternion.Inverse(grabbed.transform.rotation) * offsetPos;
+            offsetRot = grabbed.transform.rotation;
+            offsetPos = Quaternion.Inverse(transform.rotation) * offsetPos;
 		}
 		
 		// Modify rigidbody
