@@ -32,24 +32,25 @@ public class AllKale : MonoBehaviour {
         }
         else if(!inDirt)
         {
-            isPlanted =false;
+            isPlanted = false;
         }
-		if(isPlanted && stage < 5)
+        if(isPlanted)
         {
-            lifeTime += Time.deltaTime * fertilizer;
-
-            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
-        }
-        if (isPlanted && stage >= 5 && lifeTime > 60)
-        {
-            lifeTime -= Time.deltaTime * fertilizer;
-
-            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
-        }
-        if (stage == 6)
-        {
-            //wither
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            if (stage < 5)
+            {
+                lifeTime += Time.deltaTime * fertilizer;
+                transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
+            }
+            if (stage >= 5 && lifeTime > 60)
+            {
+                lifeTime -= Time.deltaTime * fertilizer;
+                transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
+            }
+            if (stage == 6)
+            {
+                //wither
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
 
         if (stage == 0 && lifeTime >= 20)
