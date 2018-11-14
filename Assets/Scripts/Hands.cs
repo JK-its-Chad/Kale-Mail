@@ -148,7 +148,10 @@ public class Hands : MonoBehaviour
 		}
 
 		// Shrink offsetPos
-		offsetPos *= 0.95f;
+		if (tool == null && Vector3.Distance(offsetPos, transform.position) > 0.25f)
+		{
+			offsetPos *= 0.95f;
+		}
 
 		// Send trigger input to fixed update
 		if (!triggered)
