@@ -147,6 +147,7 @@ public class Hands : MonoBehaviour
 		{
 			offsetPos = tool.Offset;
 			offsetRot = Quaternion.identity;
+			tool.Pickup();
 		}
 		else
 		{
@@ -172,6 +173,11 @@ public class Hands : MonoBehaviour
 		rb.isKinematic = false;
 		rb.velocity = (transform.position - lastPos) / Time.deltaTime;
 		rb.angularVelocity = (transform.rotation.eulerAngles - lastRot.eulerAngles); // Time.deltaTime;
+
+		if (tool != null)
+		{
+			tool.Drop();
+		}
 
 		grabbed = null;
 		tool = null;

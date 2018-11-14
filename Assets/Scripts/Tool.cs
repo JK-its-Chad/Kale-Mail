@@ -17,4 +17,8 @@ public abstract class Tool : MonoBehaviour
 	public virtual void Interact() { }
 
 	public virtual void StopInteract() { }
+
+	public virtual void Pickup() { }
+
+	public virtual void Drop() { }
 }
