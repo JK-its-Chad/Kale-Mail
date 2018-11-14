@@ -36,6 +36,7 @@ public class Hands : MonoBehaviour
 
 	private GameObject grabbed;
 	private Tool tool;
+	private Vector3 offsetFloaty;
 	private Vector3 offsetPos;
     private Quaternion offsetRot;
 
@@ -140,17 +141,13 @@ public class Hands : MonoBehaviour
 		// Move item positions
 		if (grabbed)
 		{
-			grabbed.transform.position = transform.position + transform.rotation * offsetPos;
+			grabbed.transform.position = transform.position + transform.rotation * offsetFloaty;
             grabbed.transform.rotation = transform.rotation * offsetRot;
 
 			lastPos = transform.position;
 			lastRot = transform.rotation;
-		}
 
-		// Shrink offsetPos
-		if (tool == null && Vector3.Distance(offsetPos, transform.position) > 0.25f)
-		{
-			offsetPos *= 0.95f;
+			offsetFloaty = (offsetFloaty * 3f + offsetPos) / 4f;
 		}
 
 		// Send trigger input to fixed update
@@ -188,11 +185,12 @@ public class Hands : MonoBehaviour
 		}
 		else
 		{
-            offsetPos = grabbed.transform.position - transform.position;
+			offsetPos = grabbed.transform.position - transform.position;
             offsetRot = Quaternion.Inverse(transform.rotation) * grabbed.transform.rotation;
-            offsetPos = Quaternion.Inverse(transform.rotation) * offsetPos;
+			offsetPos = Quaternion.Inverse(transform.rotation) * offsetPos;
 		}
-		
+		offsetFloaty = grabbed.transform.position;
+
 		// Modify rigidbody
 		Rigidbody rb = grabbed.GetComponent<Rigidbody>();
 		rb.useGravity = false;
