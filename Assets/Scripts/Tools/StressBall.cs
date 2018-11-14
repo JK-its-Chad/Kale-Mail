@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scissors : Tool
+public class StressBall : Tool
 {
 	public override void StartInteract()
 	{
