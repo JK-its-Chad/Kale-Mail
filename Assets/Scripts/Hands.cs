@@ -172,6 +172,9 @@ public class Hands : MonoBehaviour
 
 	private void Grab(GameObject toGrab)
 	{
+		// Return early if another hand is already grabbing
+		if (toGrab.GetComponent<Rigidbody>().isKinematic) { return; }
+
 		// Get gameobject and tool script
 		grabbed = toGrab;
 		tool = grabbed.GetComponent<Tool>();
