@@ -129,7 +129,11 @@ public class Hands : MonoBehaviour
 
 				if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f, 1 << 9))
 				{
-					Grab(hit.transform.root.gameObject);
+					GameObject hitGameObject = hit.transform.root.gameObject;
+
+					Vector3 hitOffset = hit.point - hitGameObject.transform.position;
+
+					Grab(hitGameObject, hitOffset);
 				}
 			}
 		}
@@ -167,7 +171,7 @@ public class Hands : MonoBehaviour
 		triggered = false;
 	}
 
-	private void Grab(GameObject toGrab)
+	private void Grab(GameObject toGrab, Vector3? laser = null)
 	{
 		// Return early if another hand is already grabbing
 		if (toGrab.GetComponent<Rigidbody>().isKinematic) { return; }
@@ -186,6 +190,10 @@ public class Hands : MonoBehaviour
 		else
 		{
 			offsetPos = grabbed.transform.position - transform.position;
+			if (laser != null)
+			{
+				offsetPos = (Vector3)laser;
+			}
             offsetRot = Quaternion.Inverse(transform.rotation) * grabbed.transform.rotation;
 			offsetPos = Quaternion.Inverse(transform.rotation) * offsetPos;
 		}
