@@ -25,7 +25,6 @@ public class AllKale : MonoBehaviour {
 	void Update ()
     {
         inDirt = Physics.CheckSphere(transform.position, .125f, soil);
-        Debug.Log(inDirt);
 
         if (lifeTime == 0 && inDirt)
         {
@@ -33,17 +32,25 @@ public class AllKale : MonoBehaviour {
         }
         else if(!inDirt)
         {
-            isPlanted =false;
+            isPlanted = false;
         }
-		if(isPlanted && stage < 5)
+        if(isPlanted)
         {
-            lifeTime += Time.deltaTime * fertilizer;
-
-            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
-        }
-        if(stage == 6)
-        {
-            //wither
+            if (stage < 5)
+            {
+                lifeTime += Time.deltaTime * fertilizer;
+                transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
+            }
+            if (stage >= 5 && lifeTime > 60)
+            {
+                lifeTime -= Time.deltaTime * fertilizer;
+                transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
+            }
+            if (stage == 6)
+            {
+                //wither
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
 
         if (stage == 0 && lifeTime >= 20)
@@ -68,21 +75,11 @@ public class AllKale : MonoBehaviour {
         }
         if (stage == 4 && lifeTime >= 100)
         {
-
             stage++;
         }
-        if (stage == 5 && lifeTime < 120)
-        {
-            lifeTime -= Time.deltaTime;
-            lifeTime -= Time.deltaTime;
-            lifeTime -= Time.deltaTime;
-            lifeTime -= Time.deltaTime;
-            lifeTime -= Time.deltaTime;
-            transform.localScale = new Vector3(lifeTime / 50, lifeTime / 50, lifeTime / 50);
-        }
+
         if (stage == 5 && lifeTime <= 60)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
             stage++;
         }
    
