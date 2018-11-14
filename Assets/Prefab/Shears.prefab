@@ -503,5 +503,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e0e3681757a404cae735dd3a51d75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0.15}
   bottomPiece: {fileID: 4712181355936574}
