@@ -181,10 +181,10 @@ public class Hands : MonoBehaviour
 		tool = grabbed.GetComponent<Tool>();
 
 		// Set offsets
+		offsetFloaty = transform.InverseTransformPoint(grabbed.transform.position) / 10f;
 		if (tool != null)
 		{
 			offsetPos = tool.Offset;
-			offsetFloaty = transform.InverseTransformPoint(grabbed.transform.position) / 10f;
 			offsetRot = Quaternion.identity;
 			tool.Pickup();
 		}
