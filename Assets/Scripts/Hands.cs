@@ -32,6 +32,7 @@ public class Hands : MonoBehaviour
 
 	private Vector3 lastPos;
 	private Quaternion lastRot;
+	private bool triggered = false;
 
 	private GameObject grabbed;
 	private Tool tool;
@@ -143,14 +144,21 @@ public class Hands : MonoBehaviour
 			lastPos = transform.position;
 			lastRot = transform.rotation;
 		}
+
+		if (!triggered)
+		{
+			triggered = Input.GetButtonDown(trigger);
+		}
 	}
 
 	private void OnTriggerStay(Collider other)
 	{
-		if (Input.GetButtonDown(trigger))
+		if (triggered)
 		{
 			Grab(other.transform.root.gameObject);
 		}
+
+		triggered = false;
 	}
 
 	private void Grab(GameObject toGrab)
