@@ -28,6 +28,7 @@ public class Hands : MonoBehaviour
 	private XRNode handNode;
 	private string trigger;
 	private string grip;
+	private string triggerAnalog;
 
 	private Vector3 lastPos;
 	private Quaternion lastRot;
@@ -45,12 +46,14 @@ public class Hands : MonoBehaviour
 			handNode = XRNode.RightHand;
 			trigger = "RightTrigger";
 			grip = "RightGrip";
+			triggerAnalog = "RightTriggerAnalog";
 		}
 		else
 		{
 			handNode = XRNode.LeftHand;
 			trigger = "LeftTrigger";
 			grip = "LeftGrip";
+			triggerAnalog = "LeftTriggerAnalog";
 		}
 
 		laser = GetComponent<LineRenderer>();
@@ -75,11 +78,11 @@ public class Hands : MonoBehaviour
 			{
 				if (Input.GetButtonDown(trigger))
 				{
-					tool.StartInteract();
+					tool.Begin();
 				}
 				else
 				{
-					tool.Interact();
+					tool.Hold();
 				}
 			}
 		}
@@ -96,9 +99,14 @@ public class Hands : MonoBehaviour
 			{
 				if (Input.GetButtonUp(trigger))
 				{
-					tool.StopInteract();
+					tool.Stop();
 				}
 			}
+		}
+
+		if (tool != null)
+		{
+			tool.Squeeze(Input.GetAxis(triggerAnalog));
 		}
 
 		// Grip button drops tools

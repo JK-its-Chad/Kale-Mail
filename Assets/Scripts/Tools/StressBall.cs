@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class StressBall : Tool
 {
-	public override void StartInteract()
+	public override void Begin()
 	{
 		transform.localScale = Vector3.one * 0.1f;
 	}
 
-	public override void StopInteract()
+	public override void Stop()
 	{
 		transform.localScale = Vector3.one * 0.2f;
 	}

@@ -9,7 +9,7 @@ public class Shears : Tool
 
 	public override void Pickup()
 	{
-		bottomPiece.localRotation = Quaternion.Euler(0, 0, 25f);
+		bottomPiece.localRotation = Quaternion.Euler(0, -90f, 25f);
 	}
 
 	public override void Drop()
@@ -17,13 +17,18 @@ public class Shears : Tool
 		bottomPiece.localRotation = Quaternion.identity;
 	}
 
-	public override void StartInteract()
+	public override void Begin()
 	{
-		bottomPiece.localRotation = Quaternion.identity;
+		// Cut kale
 	}
 
-	public override void StopInteract()
+	public override void Squeeze(float squeeze)
+	{
+		bottomPiece.localRotation = Quaternion.Euler(0, -90f, 25f * squeeze);
+	}
+
+	/*public override void Interact(float squeeze)
 	{
 		bottomPiece.localRotation = Quaternion.Euler(0, 0, 25f);
-	}
+	}*/
 }

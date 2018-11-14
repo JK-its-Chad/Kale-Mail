@@ -12,11 +12,13 @@ public abstract class Tool : MonoBehaviour
 		get { return offset; }
 	}
 
-	public virtual void StartInteract() { }
+	public virtual void Begin() { }
 
-	public virtual void Interact() { }
+	public virtual void Hold() { }
 
-	public virtual void StopInteract() { }
+	public virtual void Stop() { }
+
+	public virtual void Squeeze(float squeeze) { }
 
 	public virtual void Pickup() { }
 
