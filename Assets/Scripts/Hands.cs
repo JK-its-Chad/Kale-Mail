@@ -153,7 +153,7 @@ public class Hands : MonoBehaviour
 			lastRot = transform.rotation;
 
 			offsetFloaty = Vector3.Lerp(offsetFloaty, offsetPos, 0.1f);
-			offsetSpinny = Quaternion.Lerp(offsetSpinny, offsetRot, 0.1f);
+			offsetSpinny = Quaternion.Lerp(offsetSpinny, offsetRot, 0.05f);
 		}
 
 		// Send trigger input to fixed update
