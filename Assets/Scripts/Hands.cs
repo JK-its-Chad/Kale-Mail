@@ -184,7 +184,7 @@ public class Hands : MonoBehaviour
 		if (tool != null)
 		{
 			offsetPos = tool.Offset;
-			offsetFloaty = grabbed.transform.position;
+			offsetFloaty = transform.InverseTransformPoint(grabbed.transform.position);
 			offsetRot = Quaternion.identity;
 			tool.Pickup();
 		}
