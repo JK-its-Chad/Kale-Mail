@@ -105,6 +105,7 @@ public class Hands : MonoBehaviour
 			}
 		}
 
+		// Send tool squeeze
 		if (tool != null)
 		{
 			tool.Squeeze(Input.GetAxisRaw(triggerAnalog));
@@ -115,7 +116,8 @@ public class Hands : MonoBehaviour
 		{
 			Drop();
 		}
-
+		
+		// Grip button also functions as grab laser
 		if (Input.GetButton(grip) && grabbed == null)
 		{
 			laser.enabled = true;
@@ -145,6 +147,10 @@ public class Hands : MonoBehaviour
 			lastRot = transform.rotation;
 		}
 
+		// Shrink offsetPos
+		offsetPos *= 0.95f;
+
+		// Send trigger input to fixed update
 		if (!triggered)
 		{
 			triggered = Input.GetButtonDown(trigger);
