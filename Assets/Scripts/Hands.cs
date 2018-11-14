@@ -194,9 +194,9 @@ public class Hands : MonoBehaviour
 			if (laser != null)
 			{
 				offsetPos = (Vector3)laser;
-				offsetFloaty = offsetPos;
 			}
-            offsetRot = Quaternion.Inverse(transform.rotation) * grabbed.transform.rotation;
+			offsetFloaty = offsetPos;
+			offsetRot = Quaternion.Inverse(transform.rotation) * grabbed.transform.rotation;
 			offsetPos = Quaternion.Inverse(transform.rotation) * offsetPos;
 		}
 
