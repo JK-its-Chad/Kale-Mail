@@ -14,7 +14,7 @@ public class Shears : Tool
 
 	public override void Drop()
 	{
-		bottomPiece.localRotation = Quaternion.identity;
+		bottomPiece.localRotation = Quaternion.Euler(0, -90f, 0);
 	}
 
 	public override void Begin()
