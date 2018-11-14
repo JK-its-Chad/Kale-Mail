@@ -106,7 +106,7 @@ public class Hands : MonoBehaviour
 
 		if (tool != null)
 		{
-			tool.Squeeze(Input.GetAxis(triggerAnalog));
+			tool.Squeeze(Input.GetAxisRaw(triggerAnalog));
 		}
 
 		// Grip button drops tools
