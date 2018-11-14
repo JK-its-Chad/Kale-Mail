@@ -131,7 +131,7 @@ public class Hands : MonoBehaviour
 				{
 					GameObject hitGameObject = hit.transform.root.gameObject;
 
-					Vector3 hitOffset = hit.point - hitGameObject.transform.position;
+					Vector3 hitOffset =  hitGameObject.transform.position - hit.point;
 
 					Grab(hitGameObject, hitOffset);
 				}
