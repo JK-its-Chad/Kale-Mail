@@ -37,6 +37,7 @@ public class Hands : MonoBehaviour
 	private GameObject grabbed;
 	private Tool tool;
 	private Vector3 offsetFloaty;
+	private Quaternion offsetSpinny;
 	private Vector3 offsetPos;
     private Quaternion offsetRot;
 
@@ -152,6 +153,7 @@ public class Hands : MonoBehaviour
 			lastRot = transform.rotation;
 
 			offsetFloaty = Vector3.Lerp(offsetFloaty, offsetPos, 0.1f);
+			offsetSpinny = Quaternion.Lerp(offsetSpinny, offsetRot, 0.1f);
 		}
 
 		// Send trigger input to fixed update
@@ -186,6 +188,7 @@ public class Hands : MonoBehaviour
 		{
 			offsetPos = tool.Offset;
 			offsetRot = Quaternion.identity;
+			offsetSpinny = grabbed.transform.rotation;
 			tool.Pickup();
 		}
 		else
@@ -201,6 +204,7 @@ public class Hands : MonoBehaviour
 			{
 				offsetFloaty = offsetPos;
 			}
+			offsetSpinny = offsetRot;
 		}
 
 		// Modify rigidbody
