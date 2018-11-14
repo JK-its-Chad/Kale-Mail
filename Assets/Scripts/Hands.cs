@@ -147,7 +147,7 @@ public class Hands : MonoBehaviour
 			lastPos = transform.position;
 			lastRot = transform.rotation;
 
-			offsetFloaty = (offsetFloaty * 3f + offsetPos) / 4f;
+			offsetFloaty = Vector3.Lerp(offsetFloaty, offsetPos, 0.1f);
 		}
 
 		// Send trigger input to fixed update
