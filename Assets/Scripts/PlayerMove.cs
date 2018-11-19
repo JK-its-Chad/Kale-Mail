@@ -21,9 +21,9 @@ public class PlayerMove : MonoBehaviour {
         Vector3 MoveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Time.deltaTime;
         Vector3 cameraRot = cam.transform.rotation.eulerAngles;
 
-        if (Input.GetAxis("LeftJoyX") > .5 || Input.GetAxis("LeftJoyX") < -.5)
+        if (Input.GetAxis("RightJoyX") > .5 || Input.GetAxis("RightJoyX") < -.5)
         {
-            angle += Input.GetAxis("LeftJoyX") * .5f;
+            angle += Input.GetAxis("RightJoyX") * .5f;
             transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.y + angle, 0));
         }
         transform.position += Quaternion.Euler(0, cameraRot.y, 0) * MoveDir;
