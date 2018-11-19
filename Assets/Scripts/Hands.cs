@@ -68,7 +68,7 @@ public class Hands : MonoBehaviour
         {
             // Move hand positions
             transform.localPosition = InputTracking.GetLocalPosition(handNode);
-            transform.rotation = InputTracking.GetLocalRotation(handNode) * Quaternion.Euler(60f, 0, 0);
+            transform.localRotation = InputTracking.GetLocalRotation(handNode) * Quaternion.Euler(60f, 0, 0);
         }
         
 		// Triger interacts or drops item

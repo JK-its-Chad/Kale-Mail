@@ -65,6 +65,7 @@ public class KalePress : MonoBehaviour {
             {
                 Destroy(other.gameObject);
                 GameObject chip = Instantiate(kaleChips, new Vector3(.9f, .815f, .4f), Quaternion.identity) as GameObject;
+                chip.GetComponent<KaleChipScript>().value = other.GetComponent<AllKale>().lifeTime;
             }
         }
     }
