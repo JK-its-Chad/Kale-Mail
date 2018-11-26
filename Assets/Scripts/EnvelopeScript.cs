@@ -7,12 +7,17 @@ public class EnvelopeScript : MonoBehaviour {
     public bool isFull = false;
     [SerializeField] GameObject content;
     [SerializeField] Transform lid;
+    [SerializeField] GameObject writing;
+    List<MeshRenderer> address;
 
     public float value = 0f;
 
 	void Start ()
     {
-		
+        foreach(MeshRenderer mesh in writing.GetComponentsInChildren<MeshRenderer>())
+        {
+            address.Add(mesh);
+        }
 	}
 	
 	void Update ()
@@ -21,6 +26,7 @@ public class EnvelopeScript : MonoBehaviour {
         {
             lid.localRotation = Quaternion.Euler(180, 0, 0);
         }
+
 	}
     private void OnTriggerEnter(Collider other)
     {

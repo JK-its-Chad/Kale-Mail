@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Marker : Tool
 {
-	public enum Color { Red, Blue, Green };
+	public enum ColorLabel { Red, Blue, Green };
 
 	[SerializeField]
 	private Transform cap;
 	[SerializeField]
-	private Color color = Color.Red;
+	public Color color = Color.red;
 
 	public override void Pickup()
 	{
