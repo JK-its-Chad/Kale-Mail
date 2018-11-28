@@ -123,16 +123,19 @@ public class Hands : MonoBehaviour
 		if (Input.GetButton(grip) && grabbed == null)
 		{
 			laser.enabled = true;
+			laser.SetPosition(1, new Vector3(0, 0, 15f));
 
-			if (Input.GetButtonDown(trigger))
+			RaycastHit hit;
+
+			if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f, 1 << 9))
 			{
-				RaycastHit hit;
+				laser.SetPosition(1, new Vector3(0, 0, hit.distance * 10f));
 
-				if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f, 1 << 9))
+				if (Input.GetButtonDown(trigger))
 				{
 					GameObject hitGameObject = hit.transform.root.gameObject;
 
-					Vector3 hitOffset =  hitGameObject.transform.position - hit.point;
+					Vector3 hitOffset = hitGameObject.transform.position - hit.point;
 
 					Grab(hitGameObject, hitOffset);
 				}
