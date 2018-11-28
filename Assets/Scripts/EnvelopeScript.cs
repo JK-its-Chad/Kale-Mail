@@ -8,16 +8,16 @@ public class EnvelopeScript : MonoBehaviour {
     [SerializeField] GameObject content;
     [SerializeField] Transform lid;
     [SerializeField] GameObject writing;
-    List<MeshRenderer> address;
+
+    [SerializeField] LayerMask mailbox;
+
+    enum ColorWorth { white, green, yellow, orange, red, purple, blue }
 
     public float value = 0f;
 
 	void Start ()
     {
-        foreach(MeshRenderer mesh in writing.GetComponentsInChildren<MeshRenderer>())
-        {
-            address.Add(mesh);
-        }
+
 	}
 	
 	void Update ()
@@ -26,8 +26,7 @@ public class EnvelopeScript : MonoBehaviour {
         {
             lid.localRotation = Quaternion.Euler(180, 0, 0);
         }
-
-	}
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<KaleChipScript>() && !isFull)
@@ -37,6 +36,38 @@ public class EnvelopeScript : MonoBehaviour {
             //content.color = value
             content.SetActive(true);
             Destroy(other.gameObject);
+        }
+
+        if(other.tag == "MailBox")
+        {
+
+        }
+    }
+
+    int getAddressWorth()
+    {
+        foreach (MeshRenderer mesh in writing.GetComponentsInChildren<MeshRenderer>())
+        {
+            if(mesh.material.color == Color.green)
+            {
+                value += 1;
+            }
+            if (mesh.material.color == Color.yellow)
+            {
+                value += 2;
+            }
+            if (mesh.material.color == Color.red)
+            {
+                value += 3;
+            }
+            if (mesh.material.color == Color.blue)
+            {
+                value += 4;
+            }
+            if (mesh.material.color == Color.black)
+            {
+                value += 5;
+            }
         }
     }
 }

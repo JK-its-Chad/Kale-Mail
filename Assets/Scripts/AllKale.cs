@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AllKale : MonoBehaviour {
 
-    bool isPlanted = false;
+    public bool isPlanted = false;
     bool inDirt = false;
     public int stage = 0; //0=seed, 1=babby, 2=meh, 3=decent, 4=BESTGRAB, 5=old, 6=dead
     public float lifeTime = 0;
