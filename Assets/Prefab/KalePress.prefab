@@ -90,6 +90,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4550900988878512}
+  - component: {fileID: 114961082483437738}
+  - component: {fileID: 65091835426714662}
   m_Layer: 0
   m_Name: KalePress
   m_TagString: Untagged
@@ -130,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822888833527096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.875, y: 0.8, z: 0.735}
+  m_LocalPosition: {x: 0.75, y: 0.8, z: 0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4818775114974394}
@@ -349,6 +351,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!65 &65091835426714662
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822888833527096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.45, z: 0.5}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!65 &65753299839914212
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -373,3 +387,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114961082483437738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822888833527096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a5480c7c93c3a4b8bf1bb09132d75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kaleChips: {fileID: 1072695241564712, guid: 991a012c82196b840bba07b8c0b5dd42, type: 2}
+  press: {fileID: 4281965582882622}
+  lever: {fileID: 0}
