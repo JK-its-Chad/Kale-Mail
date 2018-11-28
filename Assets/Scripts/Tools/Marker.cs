@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Marker : Tool
 {
-	public enum ColorLabel { Red, Blue, Green };
-
 	[SerializeField]
 	private Transform cap;
 	[SerializeField]
@@ -13,12 +11,12 @@ public class Marker : Tool
 
 	public override void Pickup()
 	{
-		cap.localPosition = new Vector3(-0.1875f, 0, 0);
+		cap.localPosition = new Vector3(-0.225f, 0, 0);
 	}
 
 	public override void Drop()
 	{
-		cap.localPosition = new Vector3(0.1875f, 0, 0);
+		cap.localPosition = new Vector3(0.15f, 0, 0);
 	}
 
 	public override void Begin()
