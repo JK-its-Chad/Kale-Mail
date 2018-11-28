@@ -7,7 +7,10 @@ public class Shears : Tool
 	[SerializeField]
 	private Transform bottomPiece;
 
-	public override void Pickup()
+    [SerializeField] LayerMask KALE;
+
+
+    public override void Pickup()
 	{
 		bottomPiece.localRotation = Quaternion.Euler(0, -90f, 25f);
 	}
@@ -18,17 +21,26 @@ public class Shears : Tool
 	}
 
 	public override void Begin()
-	{
-		// Cut kale
-	}
+    {
+        // Cut kale
+        Collider[] kale = Physics.OverlapSphere(transform.position, .3f, KALE);
+        foreach (Collider ak in kale)
+        {
+            if(ak.gameObject.GetComponent<AllKale>())
+            {
+                ak.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                ak.gameObject.GetComponent<AllKale>().isPlanted = false;
+                ak.gameObject.layer = 9;
+            }
+        }
+    }
 
 	public override void Squeeze(float squeeze)
 	{
 		bottomPiece.localRotation = Quaternion.Euler(0, -90f, 25f * (1f - squeeze));
-        //if(Physics.SphereCast)
 	}
 
-	/*public override void Interact(float squeeze)
+    /*public override void Interact(float squeeze)
 	{
 		bottomPiece.localRotation = Quaternion.Euler(0, 0, 25f);
 	}*/
