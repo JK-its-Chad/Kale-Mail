@@ -33,38 +33,6 @@ public class KalePress : MonoBehaviour
 		{
 			timer = 0;
 		}
-
-		/*lever.transform.position = lockedPosition;
-        Vector3 holder = pressTop.transform.localPosition;
-        angle = Quaternion.Angle(lever.transform.rotation, Quaternion.Euler(Vector3.zero));
-        if (angle >= 70)
-        {
-            angle = 70;
-            holder.y = .40f;
-        }
-        if (angle <= .3f)
-        {
-            angle = .3f;
-            holder.y = .00f;
-        }
-        holder.y = angle / 175;
-        holder.y += .05f;
-        pressTop.transform.localPosition = holder;
-        lever.transform.rotation = Quaternion.Euler(angle, 0, 0);
-
-        if (holder.y <= .1f)
-        {
-            pressed = true;
-            if (timer >= 2)
-            {
-                pressed = false;
-            }
-            timer++;
-        }
-        if(holder.y >= .15f)
-        {
-            timer = 0;
-        }*/
 	}
 
     private void OnTriggerStay(Collider other)
@@ -75,7 +43,7 @@ public class KalePress : MonoBehaviour
             if (pressed)
             {
                 Destroy(other.gameObject);
-                GameObject chip = Instantiate(kaleChips, new Vector3(.9f, .815f, .4f), Quaternion.identity) as GameObject;
+                GameObject chip = Instantiate(kaleChips, transform.position + new Vector3(0, .1f, .4f), Quaternion.identity) as GameObject;
                 chip.GetComponent<KaleChipScript>().value = other.GetComponent<AllKale>().lifeTime;
             }
         }
