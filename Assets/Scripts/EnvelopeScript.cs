@@ -11,13 +11,15 @@ public class EnvelopeScript : MonoBehaviour {
 
     [SerializeField] LayerMask mailbox;
 
+    PlayerMove player;
+
     enum ColorWorth { white, green, yellow, orange, red, purple, blue }
 
     public float value = 0f;
 
 	void Start ()
     {
-
+        player = GameObject.Find("Player").GetComponent<PlayerMove>();
 	}
 	
 	void Update ()
@@ -40,11 +42,13 @@ public class EnvelopeScript : MonoBehaviour {
 
         if(other.tag == "MailBox")
         {
-
+            getAddressWorth();
+            player.score += value;
+            Destroy(gameObject, 1f);
         }
     }
 
-    int getAddressWorth()
+    void getAddressWorth()
     {
         foreach (MeshRenderer mesh in writing.GetComponentsInChildren<MeshRenderer>())
         {

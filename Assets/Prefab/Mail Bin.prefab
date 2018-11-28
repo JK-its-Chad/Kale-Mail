@@ -177,9 +177,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4532320702996960}
+  - component: {fileID: 65314980733927876}
   m_Layer: 0
   m_Name: Mail Bin
-  m_TagString: Untagged
+  m_TagString: MailBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,7 +670,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317763918687734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: -1.55}
+  m_LocalPosition: {x: 1.113, y: 0, z: -1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4096452021023968}
@@ -1707,7 +1708,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: -0.25, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7, y: 0.5, z: -1.55}
+  m_ConnectedAnchor: {x: 0.813, y: 0.5, z: -1.44}
   m_UseSpring: 1
   m_Spring:
     spring: 10
@@ -1802,6 +1803,18 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65314980733927876
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317763918687734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65347837594981546
 BoxCollider:
