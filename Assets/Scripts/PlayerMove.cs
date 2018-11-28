@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour {
     public float angle = 0;
     public GameObject cam;
 
+    public float score = 100;
+
 	// Use this for initialization
 	void Start () {
         rig = GetComponent<Rigidbody>();
