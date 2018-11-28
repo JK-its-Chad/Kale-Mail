@@ -635,7 +635,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 2
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!4 &1202991068
 Transform:
@@ -1013,6 +1013,22 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 17a308af7589d584baaca906c345be05, type: 2}
+    - target: {fileID: 1552037164663106, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758268158052926, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084599986146116, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378718729625554, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
   m_IsPrefabAsset: 0
@@ -1346,14 +1362,6 @@ Prefab:
     - target: {fileID: 1552037164663106, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
       propertyPath: m_Name
       value: Red Marker
-      objectReference: {fileID: 0}
-    - target: {fileID: 4039177673506036, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4768925211797448, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.00001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e678782a5d0fc4fb1df829b4b5b821, type: 2}

@@ -31,6 +31,7 @@ public class KalePress : MonoBehaviour
 		}
 		else
 		{
+			pressed = false;
 			timer = 0;
 		}
 	}

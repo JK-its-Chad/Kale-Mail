@@ -11,12 +11,12 @@ public class Marker : Tool
 
 	public override void Pickup()
 	{
-		cap.localPosition = new Vector3(-0.225f, 0, 0);
+		cap.localPosition = new Vector3(0, 0, -0.225f);
 	}
 
 	public override void Drop()
 	{
-		cap.localPosition = new Vector3(0.15f, 0, 0);
+		cap.localPosition = new Vector3(0, 0, 0.15f);
 	}
 
 	public override void Begin()
