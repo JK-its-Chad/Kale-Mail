@@ -44,7 +44,7 @@ public class EnvelopeScript : MonoBehaviour {
         {
             getAddressWorth();
             player.score += value;
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
         }
     }
 
