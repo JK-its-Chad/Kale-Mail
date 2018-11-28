@@ -4,16 +4,43 @@ using UnityEngine;
 
 public class EnvelopeSpawner : MonoBehaviour {
 
+    [SerializeField] Transform holder1;
+    [SerializeField] Transform holder2;
+    [SerializeField] Transform holder3;
+
     [SerializeField] GameObject envelope;
+
+    PlayerMove player;
+    float timer = 0;
+    float timerMax = 1;
 
 	void Start ()
     {
-        GameObject spawnME = Instantiate(envelope, transform.position, Quaternion.Euler(90, 0, -90)) as GameObject;
+        player = GameObject.Find("Player").GetComponent<PlayerMove>();
+        MoreEnve();
     }
-	
 
-	void Update ()
+    void Update()
     {
-        //if buyButton, spend money, spawn more
-	}
+        timer -= Time.deltaTime;
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(player.score > 0 && other.tag == "Button" && timer <= 0)
+        {
+            timer = timerMax;
+            player.score -= 10;
+            MoreEnve();
+        }
+    }
+
+    void MoreEnve()
+    {
+        Instantiate(envelope, holder1.position, Quaternion.Euler(90, 0, -90));
+        Instantiate(envelope, holder2.position, Quaternion.Euler(90, 0, -90));
+        Instantiate(envelope, holder3.position, Quaternion.Euler(90, 0, -90));
+    }
+
 }

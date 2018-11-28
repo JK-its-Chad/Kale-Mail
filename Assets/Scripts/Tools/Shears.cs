@@ -25,6 +25,7 @@ public class Shears : Tool
 	public override void Squeeze(float squeeze)
 	{
 		bottomPiece.localRotation = Quaternion.Euler(0, -90f, 25f * (1f - squeeze));
+        //if(Physics.SphereCast)
 	}
 
 	/*public override void Interact(float squeeze)
