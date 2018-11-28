@@ -44,7 +44,7 @@ public class KalePress : MonoBehaviour
             if (pressed)
             {
                 Destroy(other.gameObject);
-                GameObject chip = Instantiate(kaleChips, transform.position + new Vector3(0, .1f, .4f), Quaternion.identity) as GameObject;
+                GameObject chip = Instantiate(kaleChips, transform.position + new Vector3(0, .1f, -.4f), Quaternion.identity) as GameObject;
                 chip.GetComponent<KaleChipScript>().value = other.GetComponent<AllKale>().lifeTime;
             }
         }
